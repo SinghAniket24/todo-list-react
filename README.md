@@ -16,7 +16,7 @@ A clean and interactive **ToDo List** app built with **React** that helps you ma
 
 ## 📸 Screenshot
 
-![App Screenshot](./screenshot.png)
+![App Screenshot](Screenshot.png)
 
 ---
 
