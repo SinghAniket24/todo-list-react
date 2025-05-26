@@ -1,0 +1,239 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #6fffe9);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.to-do-list {
+  max-width: 480px;
+  margin: 2rem auto 5rem auto; 
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+  user-select: none;
+}
+
+/* Title */
+.to-do-list h1 {
+  text-align: center;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 2rem;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input-section input[type="text"] {
+  flex: 1;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  border: 2px solid #2980b9;
+  border-radius: 10px;
+  outline-offset: 3px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-section input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Buttons */
+.add-button,
+.clear-button {
+  border: none;
+  color: white;
+  padding: 0 1.4rem;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-button {
+  background: #27ae60;
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.add-button:hover:enabled {
+  background: #2ecc71;
+  box-shadow: 0 7px 20px rgba(46, 204, 113, 0.6);
+}
+
+.clear-button {
+  background: #c0392b;
+  box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
+}
+
+.clear-button:hover:enabled {
+  background: #e74c3c;
+  box-shadow: 0 7px 20px rgba(231, 76, 60, 0.6);
+}
+
+/* Disabled buttons */
+.add-button:disabled,
+.clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Task List */
+ol {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 0;
+}
+
+ol li {
+  background: #f9f9f9;
+  border: 2px solid #d0d7de;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+ol li:hover {
+  background-color: #e6f2ff;
+  border-color: #2980b9;
+}
+
+ol li.completed {
+  background-color: #d6f5d6;
+  border-color: #27ae60;
+}
+
+ol li.completed .text {
+  text-decoration: line-through;
+  color: #7f8c8d;
+  cursor: default;
+}
+
+/* Task Text */
+.text {
+  flex: 1;
+  font-size: 1.1rem;
+  user-select: text;
+  word-break: break-word;
+}
+
+/* Buttons inside tasks */
+.edit-button,
+.delete-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #34495e;
+  padding: 0 0.4rem;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.edit-button:hover {
+  color: #2980b9;
+}
+
+.delete-button:hover {
+  color: #c0392b;
+}
+
+/* Accessibility focus */
+.edit-button:focus,
+.delete-button:focus,
+.add-button:focus,
+.clear-button:focus,
+input:focus,
+ol li:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 3px;
+}
+
+/* Footer styles */
+
+footer.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(90deg, #2980b9, #6dd5fa);
+  color: #ecf0f1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.15);
+  user-select: none;
+  z-index: 10;
+  padding: 0 1rem;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+
+body, #root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.to-do-list {
+  flex: 1 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .to-do-list {
+    margin: 1rem;
+    padding: 1.5rem 1.8rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  .input-section input,
+  .input-section button {
+    width: 100%;
+  }
+
+  footer.footer {
+    font-size: 0.8rem;
+    height: 55px;
+    padding: 0 0.8rem;
+  }
+}
